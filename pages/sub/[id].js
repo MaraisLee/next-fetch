@@ -1,12 +1,18 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
 const Board = () => {
   const router = useRouter();
-  console.log(router);
   const id = router.query.id;
-  return <div>{id} 페이지 입니다.</div>;
+  return (
+    <>
+      <h1>Sub{id} Page</h1>
+      <p>
+        <Link href="/">홈</Link>
+      </p>
+    </>
+  );
 };
 
 export default Board;
-q
