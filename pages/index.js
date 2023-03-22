@@ -7,11 +7,6 @@ export default function Home({ cats }) {
   return (
     <>
       <h1>Cats World</h1>
-      <ul>
-        {cats.map((cat) => (
-          <li key={cat.name}>{cat.name}</li>
-        ))}
-      </ul>
     </>
   );
 }
@@ -25,7 +20,7 @@ export default function Home({ cats }) {
 // 서버에서 데이터 바꾸고 다시 돌리면 client도 변경됨. (새로고침 시)
 // export const getServerSideProps = async () => {
 //   // const res = await fetch(
-//   //   "https://api.thecatapi.com/v1/breeds?api_key=live_Z9dx0VtiK2f0qbMsh1fhE7Z3Sw21vaP79MAhtKChl3XFPpWKvoBDSa6OSqZHYNSJ&limit=10"
+//   //  `https://api.thecatapi.com/v1/breeds?api_key=${process.env.NEXT_PUBLIC_CATS_KEY}&limit=10`
 //   // );
 //   const res = await fetch("http://localhost:8080/api/cats");
 //   const cats = await res.json();
@@ -42,13 +37,13 @@ export default function Home({ cats }) {
 //    but, 미리 만들어져 있어서 엄청 빨리 화면에 출력
 //    so, Next.js 에서는 SSG 적극 추천 why? SEO 도 잘됨
 //    getStaticProps 지원
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:8080/api/cats");
-  const cats = await res.json();
-  return {
-    props: {
-      cats,
-    },
-    revalidate: 20,
-  };
-};
+// export const getStaticProps = async () => {
+//   const res = await fetch("http://localhost:8080/api/cats");
+//   const cats = await res.json();
+//   return {
+//     props: {
+//       cats,
+//     },
+//     revalidate: 20,
+//   };
+// };
