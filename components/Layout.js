@@ -1,13 +1,13 @@
-import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import Head from "next/head";
+import HeaderInfo from "./HeaderInfo";
+import Nav from "./Nav";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Header></Header>
+      <HeaderInfo />
+      <Nav />
       <div>{children}</div>
-      <Footer></Footer>
     </>
   );
 };
